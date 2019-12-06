@@ -62,16 +62,18 @@ emailer     = Emailer.new(
   smtp_config['smtp_server'], 
   smtp_config['domain'], 
   smtp_config['account_address'], 
+  smtp_config['from_address'], 
   smtp_config['account_password']
 )
 
 template = File.read("letter_template.erb")
 people.each do |person|
   recipient_name = person.santa.name
+  recipient_gender = person.santa.gender
   target_name    = person.name
   message        = ERB.new(template).result(binding)
   email = Email.new(
-    person.santa.email, "SANTABOT 5000: #{Time.now.year} TARGETS", message
+    person.santa.email, "Help me out this Christmas", message
   )
   emailer.send(email)
 end

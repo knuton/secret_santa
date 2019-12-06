@@ -1,8 +1,9 @@
 class Person
-  attr_accessor :name, :group, :email, :santa
+  attr_accessor :name, :gender, :group, :email, :santa
 
   def initialize(attrs)
     self.name  = attrs["name"]
+    self.gender  = attrs["gender"]
     self.group = attrs["group"]
     self.email = attrs["email"]
   end
