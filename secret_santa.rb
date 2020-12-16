@@ -16,11 +16,11 @@ Logger = SantaLogger.new
 
 people_config = YAML.load_file('config/people.yml')
 
-people = people_config['people'].map do |attrs|
+people = people_config['people'].map { |attrs|
   Person.new(attrs)
-end
+}.shuffle
 
-santas = people.dup
+santas = people.dup.shuffle
 people.each do |person|
   person.santa = santas.delete_at(rand(santas.size))
 end
