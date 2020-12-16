@@ -17,11 +17,11 @@ class Person
   end
 
   def to_s
-    "#{name} (#{group})"
+    "#{name}"
   end
 
   def with_santa
-    "#{self} - santa: #{santa}"
+    "#{santa} gives to #{self}"
   end
 
 end
